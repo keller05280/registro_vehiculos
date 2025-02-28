@@ -1,0 +1,19 @@
+<div class="register-container">
+  <h2>Registro</h2>
+  <form (ngSubmit)="register()">
+    <div class="form-group">
+      <label for="usuario">Usuario:</label>
+      <input type="text" id="usuario" [(ngModel)]="user.user" name="usuario" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" [(ngModel)]="user.email" name="email" required>
+    </div>
+    <div class="form-group">
+      <label for="contrasena">Contraseña:</label>
+      <input type="password" id="contrasena" [(ngModel)]="user.contrasena" name="contrasena" required>
+    </div>
+    <button type="submit">Registrarse</button>
+  </form>
+  <p *ngIf="error" class="error-message">{{ error }}</p>
+</div>

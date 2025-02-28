@@ -1,0 +1,49 @@
+<h2>Gestión de Vehículos</h2>
+
+<form [formGroup]="vehiculoForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="marca">Marca</label>
+    <input type="text" id="marca" formControlName="marca" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="modelo">Modelo</label>
+    <input type="text" id="modelo" formControlName="modelo" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="placa">Placa</label>
+    <input type="text" id="placa" formControlName="placa" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="descripcion">Descripción</label>
+    <textarea id="descripcion" formControlName="descripcion" class="form-control"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">{{ isEditing ? 'Actualizar' : 'Agregar' }}</button>
+  <button type="button" class="btn btn-secondary" (click)="cancelEdit()" *ngIf="isEditing">Cancelar</button>
+</form>
+
+<div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
+<div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Marca</th>
+      <th>Modelo</th>
+      <th>Placa</th>
+      <th>Descripción</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let vehiculo of vehiculos">
+      <td>{{ vehiculo.marca }}</td>
+      <td>{{ vehiculo.modelo }}</td>
+      <td>{{ vehiculo.placa }}</td>
+      <td>{{ vehiculo.descripcion }}</td>
+      <td>
+        <button class="btn btn-sm btn-primary" (click)="selectVehiculo(vehiculo)">Editar</button>
+        <button class="btn btn-sm btn-danger" (click)="deleteVehiculo(vehiculo.id)">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
