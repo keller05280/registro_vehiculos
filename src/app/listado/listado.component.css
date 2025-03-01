@@ -1,0 +1,167 @@
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+  font-weight: 600;
+}
+
+button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+button[type="submit"] {
+  background-color: #1890ff;
+  color: white;
+}
+
+button[type="submit"]:hover {
+  background-color: #0c7cd5;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+button[type="button"] {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+button[type="button"]:hover {
+  background-color: #d0d0d0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.botones-principales button {
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.botones-principales button:first-child { 
+  background-color: #e6f4ea; 
+  color: #27ae60; /
+}
+
+.botones-principales button:first-child:hover {
+  background-color: #c8e6c9;
+}
+
+.botones-principales button:last-child { 
+  background-color: #f0f0f0; 
+  color: #555; 
+}
+
+.botones-principales button:last-child:hover {
+  background-color: #e0e0e0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid #ddd;
+}
+
+table thead {
+  background-color: #e8f5e9;
+}
+
+th,
+td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f0f0f0;
+  font-weight: 600;
+  color: #444;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+.noVehiculos {
+  text-align: center;
+  margin-top: 30px;
+  color: #777;
+  font-size: 16px;
+}
+
+.acciones-buttons {
+  display: flex;
+  justify-content: left;
+}
+
+.acciones-buttons button {
+  margin-right: 5px;
+}
+
+.acciones-buttons button.editar {
+  background-color: #e6f4ea;
+  color: #27ae60;
+  border-color: #a8e0b6;
+}
+
+.acciones-buttons button.editar:hover {
+  background-color: #c8e6c9;
+  border-color: #66bb6a;
+}
+
+.acciones-buttons button.eliminar {
+  background-color: #fce8e6;
+  color: #e74c3c;
+  border-color: #f8d7da;
+}
+
+.acciones-buttons button.eliminar:hover {
+  background-color: #f8d7da;
+  border-color: #e57373;
+}
+
+@media (max-width: 600px) {
+  table {
+    border: 0;
+  }
+
+  table thead {
+    display: none;
+  }
+
+  table tr {
+    margin-bottom: 10px;
+    display: block;
+    border-bottom: 1px solid #ddd;
+  }
+
+  table td {
+    display: block;
+    text-align: right;
+  }
+
+  table td:before {
+    content: attr(data-label);
+    float: left;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 12px;
+  }
+
+  .acciones-buttons {
+    justify-content: flex-end;
+  }
+}

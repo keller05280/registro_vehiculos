@@ -1,28 +1,14 @@
-import { Component } from '@angular/core';
-import { Router, RouterModule, RouterOutlet, Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { TallerFormComponent } from './taller/taller.component';
+import { Component, OnInit } from '@angular/core';
+import { RouterOutlet, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  template: `<router-outlet></router-outlet>`,
   styleUrls: ['./app.component.css'],
-  imports: [RouterOutlet, RouterModule,]
+  imports: [RouterOutlet, RouterModule],
 })
-export class AppComponent {
-  
-  title = 'taller-app';
-  constructor(private router: Router) {
-    this.setupRoutes();
-  }
-  setupRoutes() {
-    const routes: Routes = [
-        { path: 'login', component: LoginComponent },
-        { path: 'register', component: RegisterComponent },
-        { path:'taller',component:TallerFormComponent },
-        { path: '', redirectTo: '/login', pathMatch: 'full' },
-    ];
-    this.router.resetConfig(routes);
+export class AppComponent implements OnInit {
+
+  ngOnInit(): void {
   }
 }

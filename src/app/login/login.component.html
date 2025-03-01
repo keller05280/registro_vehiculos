@@ -3,20 +3,18 @@
   <form (ngSubmit)="login()">
     <div class="form-group">
       <label for="user">Usuario:</label>
-      <input type="text" id="user" name="user" [(ngModel)]="credentials.user" required>
+      <input type="text" id="user" name="user" [(ngModel)]="credentials.user" required />
     </div>
     <div class="form-group">
       <label for="contrasena">Contraseña:</label>
-      <input type="password" id="contrasena" name="contrasena" [(ngModel)]="credentials.contrasena" required>
+      <input type="password" id="contrasena" name="contrasena" [(ngModel)]="credentials.contrasena" required />
     </div>
     <button type="submit">Iniciar Sesión</button>
   </form>
   <div *ngIf="error" class="error-message">
     {{ error }}
   </div>
-  <p>¿No tienes una cuenta? <a routerLink="/register">Regístrate aquí</a></p>
+  <div class="register-link">
+    <p>¿No tienes una cuenta? <a routerLink="/register">Regístrate aquí</a></p>
+  </div>
 </div>
-
-
-
-

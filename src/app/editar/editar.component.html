@@ -1,0 +1,21 @@
+<h2>Editar Vehículo</h2>
+<form [formGroup]="vehiculoForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label>Marca:</label>
+    <input type="text" formControlName="marca">
+  </div>
+  <div>
+    <label>Modelo:</label>
+    <input type="text" formControlName="modelo">
+  </div>
+  <div>
+    <label>Placa:</label>
+    <input type="text" formControlName="placa">
+  </div>
+  <div>
+    <label>Descripción:</label>
+    <textarea formControlName="descripcion"></textarea>
+  </div>
+  <button type="submit">Guardar</button>
+  <button type="button" (click)="onCancel()">Cancelar</button>
+</form>

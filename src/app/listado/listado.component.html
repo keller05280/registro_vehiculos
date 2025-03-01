@@ -1,0 +1,36 @@
+<h2>Lista de Vehículos</h2>
+
+<div class="botones-principales">
+  <button (click)="goToRegister()">Registrar Vehículo</button>
+  <button (click)="logout()">Cerrar Sesión</button>
+</div>
+
+<div class="tabla-contenedor">
+  <div *ngIf="vehiculos && vehiculos.length > 0; else noVehiculos">
+    <table>
+      <thead>
+        <tr>
+          <th>Marca</th>
+          <th>Modelo</th>
+          <th>Placa</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let vehiculo of vehiculos">
+          <td data-label="Marca">{{ vehiculo.marca }}</td>
+          <td data-label="Modelo">{{ vehiculo.modelo }}</td>
+          <td data-label="Placa">{{ vehiculo.placa }}</td>
+          <td data-label="Acciones" class="acciones-buttons">
+            <button class="editar" (click)="onEdit(vehiculo)">Editar</button>
+            <button class="eliminar" (click)="onDelete(vehiculo.id)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #noVehiculos>
+    <p class="noVehiculos">No hay vehículos registrados.</p>
+  </ng-template>
+</div>
