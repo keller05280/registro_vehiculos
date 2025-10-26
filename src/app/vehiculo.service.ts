@@ -23,7 +23,7 @@ export class VehiculosService {
   }
 
   getVehiculo(id: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/item/${id}`).pipe(
+    return this.http.get<any>(`http://localhost:3000/vehiculo/${id}`).pipe(
       catchError(this.handleError)
     );
   }

@@ -15,6 +15,7 @@ export class TallerFormComponent {
   isSubmitting = false;
   errorMessage: string | null = null;
   successMessage: string | null = null;
+  submitted = false;
 
   constructor(
     private fb: FormBuilder,
@@ -56,6 +57,7 @@ export class TallerFormComponent {
   }
 
   onSubmit(): void {
+    this.submitted = true;
     this.addVehiculo();
   }
 }

@@ -4,7 +4,7 @@
   <div class="form-group">
     <label for="marca">Marca:</label>
     <input type="text" id="marca" formControlName="marca" class="form-control" />
-    <div *ngIf="vehiculoForm.get('marca')?.invalid && vehiculoForm.get('marca')?.touched" class="error-message">
+    <div *ngIf="submitted && vehiculoForm.get('marca')?.invalid" class="error-message">
       La marca es requerida.
     </div>
   </div>
@@ -12,7 +12,7 @@
   <div class="form-group">
     <label for="modelo">Modelo:</label>
     <input type="text" id="modelo" formControlName="modelo" class="form-control" />
-    <div *ngIf="vehiculoForm.get('modelo')?.invalid && vehiculoForm.get('modelo')?.touched" class="error-message">
+    <div *ngIf="submitted && vehiculoForm.get('modelo')?.invalid" class="error-message">
       El modelo es requerido.
     </div>
   </div>
@@ -20,7 +20,7 @@
   <div class="form-group">
     <label for="placa">Placa:</label>
     <input type="text" id="placa" formControlName="placa" class="form-control" />
-    <div *ngIf="vehiculoForm.get('placa')?.invalid && vehiculoForm.get('placa')?.touched" class="error-message">
+    <div *ngIf="submitted && vehiculoForm.get('placa')?.invalid" class="error-message">
       La placa es requerida.
     </div>
   </div>

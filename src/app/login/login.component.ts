@@ -14,15 +14,18 @@ import { CommonModule } from '@angular/common';
 export class LoginComponent {
   credentials = { user: '', contrasena: '' };
   error: string = '';
+  submitted = false;
 
   constructor(private authService: AuthService, private router: Router) {}
 
   login() {
-    
-    this.credentials.user = this.credentials.user.replace(/\s/g, '').toLowerCase();
-    this.credentials.contrasena = this.credentials.contrasena.replace(/\s/g, '');
+    this.submitted = true;
 
-    console.log('Credenciales:', this.credentials);
+    // Validar campos vacíos antes de enviar
+    if (!this.credentials.user || !this.credentials.contrasena) {
+      this.error = 'Usuario y contraseña son requeridos.';
+      return;
+    }
 
     this.authService.login(this.credentials).subscribe(
       (response) => {
