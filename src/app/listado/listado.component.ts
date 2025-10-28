@@ -5,7 +5,6 @@ import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { VehiculosService } from '../vehiculo.service';
 import { AuthService } from '../auth.service';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
@@ -19,17 +18,16 @@ import autoTable from 'jspdf-autotable';
 })
 export class ListadoComponent implements OnInit {
   vehiculos: any[] = [];
-  pdfSrc: SafeResourceUrl | null = null;
   incluirDescripcion: boolean = false;
   private pdfDoc: jsPDF | null = null;
 
   @ViewChild('pdfDialog') pdfDialog!: ElementRef<HTMLDialogElement>;
+  @ViewChild('pdfFrame') pdfFrame!: ElementRef<HTMLIFrameElement>; // Referencia al iframe
 
   constructor(
     private router: Router, 
     private vehiculosService: VehiculosService, 
-    private authService: AuthService,
-    private sanitizer: DomSanitizer
+    private authService: AuthService
   ) {} 
 
   ngOnInit(): void {
@@ -63,17 +61,15 @@ export class ListadoComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  // Se llama al hacer clic en el botón principal
   generarPDF() {
-    this.incluirDescripcion = false; // Inicia con la descripción desactivada
-    this.regenerarPreview(); // Genera la vista previa inicial
-    this.pdfDialog.nativeElement.showModal(); // Muestra la modal
+    this.incluirDescripcion = false;
+    this.regenerarPreview();
+    this.pdfDialog.nativeElement.showModal();
   }
 
-  // Se llama cada vez que el checkbox cambia
   regenerarPreview() {
     const doc = new jsPDF();
-    this.pdfDoc = doc; // Actualiza la instancia del documento para la descarga
+    this.pdfDoc = doc;
 
     doc.text('Reporte de Vehículos', 14, 20);
 
@@ -95,7 +91,8 @@ export class ListadoComponent implements OnInit {
     });
 
     const dataUri = doc.output('datauristring');
-    this.pdfSrc = this.sanitizer.bypassSecurityTrustResourceUrl(dataUri);
+    // Asignamos la URL directamente al src del iframe, evitando el sanitizer
+    this.pdfFrame.nativeElement.src = dataUri;
   }
 
   descargarPDF() {
@@ -107,8 +104,11 @@ export class ListadoComponent implements OnInit {
 
   cerrarPreview() {
     this.pdfDialog.nativeElement.close();
-    this.pdfSrc = null;
+    // Limpiamos el iframe para liberar memoria
+    if(this.pdfFrame && this.pdfFrame.nativeElement) {
+      this.pdfFrame.nativeElement.src = '';
+    }
     this.pdfDoc = null;
-    this.incluirDescripcion = false; // Resetea el estado del checkbox
+    this.incluirDescripcion = false;
   }
 }

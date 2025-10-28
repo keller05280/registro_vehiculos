@@ -27,7 +27,9 @@ h2 {
 
 /* Estilo de la tarjeta para la tabla */
 table {
-  width: 900px;
+  width: 100%;
+  max-width: 900px;
+  table-layout: fixed;
   border-spacing: 0;
   background-color: #ffffff;
   border-collapse: collapse;
@@ -233,6 +235,7 @@ tbody tr:hover {
 .pdf-dialog .download-button {
   background-color: #007bff;
   color: white;
+  margin-right: 5px;
 }
 
 .pdf-dialog .download-button:hover {

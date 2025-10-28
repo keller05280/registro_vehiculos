@@ -44,7 +44,7 @@
     <button (click)="cerrarPreview()" class="close-button">&times;</button>
   </div>
   <div class="pdf-modal-body">
-    <iframe [src]="pdfSrc"></iframe>
+    <iframe #pdfFrame></iframe>
   </div>
   <div class="pdf-modal-footer">
     <div class="report-option">
