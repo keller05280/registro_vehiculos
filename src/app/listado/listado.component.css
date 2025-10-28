@@ -1,167 +1,161 @@
-
-h2 {
+/* Contenedor del encabezado */
+.header-container {
   text-align: center;
-  margin-bottom: 30px;
-  color: #333;
-  font-weight: 600;
+  padding: 20px 0;
+  margin: 20px 0;
 }
 
-button {
-  padding: 12px 20px;
+h2 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #343a40;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+/* Contenedor para centrar la tabla */
+.tabla-contenedor {
+  display: flex;
+  justify-content: center;
+  align-items: initial;
+  padding: 40px 20px;
+  background-color: #f4f7f9;
+  min-height: calc(100vh - 220px); /* Ajustado para el nuevo header */
+}
+
+/* Estilo de la tarjeta para la tabla */
+table {
+  width: 900px;
+  border-spacing: 0;
+  background-color: #ffffff;
+  border-collapse: collapse;
+  border-radius: 12px;
+  box-shadow: 0px 8px 10px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Estilo de la cabecera (thead) */
+table thead {
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: none;
+}
+
+th {
+  padding: 15px;
+  text-align: left;
+  border-right: none; 
+}
+
+/* Centrar específicamente el th de "ACCIONES" */
+th:last-child {
+  text-align: center; 
+}
+
+/* También asegurar que la celda de botones esté centrada */
+tbody td:last-child {
+  text-align: center; 
+}
+
+/* Estilo del cuerpo de la tabla (tbody) */
+tbody {
+  background-color: #f2f2f2;
+  color: #000000;
+}
+
+tbody td {
+  padding: 18px 25px;
+  border-bottom: none;
+  border-right: none; 
+  vertical-align: middle;
+}
+
+/* Efecto cebra sutil */
+tbody tr:nth-child(even) {
+  background-color: #e6e6e6;
+}
+
+/* Efecto hover mejorado */
+tbody tr:hover {
+  background-color: #d9d9d9;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1); 
+}
+
+/* Estilo de los botones de acción */
+.acciones-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 8px; /* ✨ Aumentado de 2px a 8px */
+}
+
+.acciones-buttons button {
+  border: 2px solid;
+  background-color: transparent;
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 13px;
+  transition: all 0.3s ease-in-out;
+}
+
+.acciones-buttons button.editar {
+  border-color: #FBBF24;
+  color: #FBBF24;
+}
+
+.acciones-buttons button.editar:hover {
+  background-color: #FBBF24;
+  color: #111827;
+  transform: scale(1.05); /* ✨ EFECTO DE CRECIMIENTO */
+}
+
+.acciones-buttons button.eliminar {
+  border-color: #F87171;
+  color: #F87171;
+}
+
+.acciones-buttons button.eliminar:hover {
+  background-color: #F87171;
+  color: #ffffff;
+  transform: scale(1.05); /* ✨ EFECTO DE CRECIMIENTO */
+}
+
+/* Botones principales */
+.botones-principales {
+  text-align: center;
+}
+
+.botones-principales button {
+  padding: 12px 25px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
-  margin-right: 10px;
-  margin-bottom: 20px;
-  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  margin: 0 10px;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-button[type="submit"] {
-  background-color: #1890ff;
+.botones-principales button:first-child {
+  background-color: #007bff;
   color: white;
 }
 
-button[type="submit"]:hover {
-  background-color: #0c7cd5;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+.botones-principales button:last-child {
+  background-color: #6c757d;
+  color: white;
 }
 
-button[type="button"] {
-  background-color: #e0e0e0;
-  color: #333;
-}
-
-button[type="button"]:hover {
-  background-color: #d0d0d0;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-
-.botones-principales button {
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-}
-
-.botones-principales button:first-child { 
-  background-color: #e6f4ea; 
-  color: #27ae60; /
-}
-
-.botones-principales button:first-child:hover {
-  background-color: #c8e6c9;
-}
-
-.botones-principales button:last-child { 
-  background-color: #f0f0f0; 
-  color: #555; 
-}
-
-.botones-principales button:last-child:hover {
-  background-color: #e0e0e0;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-  border-radius: 12px;
-  overflow: hidden;
-  border: 2px solid #ddd;
-}
-
-table thead {
-  background-color: #e8f5e9;
-}
-
-th,
-td {
-  padding: 15px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
-
-th {
-  background-color: #f0f0f0;
-  font-weight: 600;
-  color: #444;
-}
-
-tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-
-tr:hover {
-  background-color: #f5f5f5;
-}
-
-.noVehiculos {
-  text-align: center;
-  margin-top: 30px;
-  color: #777;
-  font-size: 16px;
-}
-
-.acciones-buttons {
-  display: flex;
-  justify-content: left;
-}
-
-.acciones-buttons button {
-  margin-right: 5px;
-}
-
-.acciones-buttons button.editar {
-  background-color: #e6f4ea;
-  color: #27ae60;
-  border-color: #a8e0b6;
-}
-
-.acciones-buttons button.editar:hover {
-  background-color: #c8e6c9;
-  border-color: #66bb6a;
-}
-
-.acciones-buttons button.eliminar {
-  background-color: #fce8e6;
-  color: #e74c3c;
-  border-color: #f8d7da;
-}
-
-.acciones-buttons button.eliminar:hover {
-  background-color: #f8d7da;
-  border-color: #e57373;
-}
-
-@media (max-width: 600px) {
-  table {
-    border: 0;
-  }
-
-  table thead {
-    display: none;
-  }
-
-  table tr {
-    margin-bottom: 10px;
-    display: block;
-    border-bottom: 1px solid #ddd;
-  }
-
-  table td {
-    display: block;
-    text-align: right;
-  }
-
-  table td:before {
-    content: attr(data-label);
-    float: left;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 12px;
-  }
-
-  .acciones-buttons {
-    justify-content: flex-end;
-  }
+.botones-principales button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
